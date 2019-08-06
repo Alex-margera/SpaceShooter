@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float tilt;
     public Rigidbody rb;
     public Boundary boundary;
+    
 
     public GameObject shot;
     public Transform shotSpawn;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
@@ -35,11 +37,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1") && myTime > nextFire)
         {
             nextFire = myTime + fireDelta;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);// as GameObject;
-
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+           
 
             nextFire = nextFire - myTime;
             myTime = 0.0F;
+            GetComponent<AudioSource>().Play();
         }
     }
 

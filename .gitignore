@@ -6,3 +6,5 @@ Packages/
 *.sln
 Temp/
 .vs/
+Builds
+ProjectSettings/
